@@ -10,7 +10,7 @@
 
 <body>
   Version 1.0<br>
-  November 2, 2015<br>
+  November 3, 2015<br>
   Copyright 2012 - 2015 by Jamal Mazrui<br>
   GNU Lesser General Public License (LGPL)<br>
   ----------
@@ -31,15 +31,16 @@
 
   <h2><a name="A1">Description</a></h2>
 
-  <p><a name="A1">PDF2Parts is a free, open source utility for
-  extracting text, images, URLs, metadata, and individual pages from a
-  file in Portable Document Format (PDF). The executable,
+  <p><a name="A1">PDF2Parts is a free, open source set of utilities for
+  extracting text, images, URLs, metadata, and individual pages from
+  files in Portable Document Format (PDF). The executable,
   pdf2parts.exe, runs as a 32-bit, console-mode process under Windows.
   The similarly named library and configuration files, pdf2parts.dll,
   pdf2parts.tlb, and pdf2parts.ini, are also needed by the program.
-  Other utilities in the distribution extract particular kinds of
-  parts: pdf2metadata.exe, pdf2pages.exe, pdf2images.exe,
-  pdf2graphics.exe, pdf2text.exe and pdf2urls.exe.</a></p>
+  Other utilities in the distribution extract particular kinds of parts
+  in case only they are needed: pdf2metadata.exe, pdf2pages.exe,
+  pdf2images.exe, pdf2graphics.exe, pdf2text.exe, and
+  pdf2urls.exe.</a></p>
 
   <h2><a name="A2">Installation</a></h2>
 
@@ -121,7 +122,11 @@
   Test_01-2.bmp</p>
 
   <p>Each utility may be run without command-line parameters to be
-  reminded of its syntax.</p>
+  reminded of its syntax. The Batch file RunMulti.bat enables a utility
+  to be run against multiple PDF files meeting a wildcard
+  specification. The first parameter is the utility name and the second
+  parameter is the wildcard specification, e.g.,<br>
+  RunMulti pdf2text C:\temp\*.pdf</p>
 
   <h2><a name="A4">Change Log</a></h2>
 
@@ -139,6 +144,13 @@
   Used a registration-free COM technique rather than calling a Win32
   DLL in order to avoid memory errors when extracting text from PDFs
   that are not small in size.</p>
+
+  <p>Version 1.0 on November 3, 2015<br>
+  Added Tagged status to PDF metadata. Added pdf2urls.exe utility.
+  Added RunMulti batch file. Uploaded project as a GitHub repository
+  at<br>
+  <a href=
+  "https://github.com/JamalMazrui/pdf2parts">https://github.com/JamalMazrui/pdf2parts</a></p>
 
   <h2><a name="A5">Development Notes</a></h2>
 
@@ -160,8 +172,17 @@
 
   <p>Note that these are commercial products needed to successfully
   compile new versions of the executables. Their source code, however,
-  is open and free to share according to the license. Batch and include
-  files needed for development are also contained in this package.</p>
+  is open and free to share according to the GNU Lesser General Public
+  License (LGPL). Batch and include files needed for development of
+  PDF2Parts are also contained in the distribution. The win2con.exe
+  utility was used to convert each executable from a Windows to console
+  mode binary.</p>
+
+  <p>PDF metadata is extracted partly with the help of the free
+  pdfinfo.exe utility. It is distributed under the GNU General Public
+  License (GPL) as part of the xpdf package, available from<br>
+  <a href=
+  "http://www.foolabs.com/xpdf/">http://www.foolabs.com/xpdf/</a></p>
 
   <p>I welcome feedback, which helps PDF2PARTS improve over time. When
   reporting a problem, the more specifics, the better, including steps

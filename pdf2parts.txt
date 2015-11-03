@@ -1,6 +1,6 @@
 PDF2Parts
 Version 1.0
-November 2, 2015
+November 3, 2015
 Copyright 2012 - 2015 by Jamal Mazrui
 GNU Lesser General Public License (LGPL)
 ----------
@@ -16,7 +16,7 @@ Development Notes
 
 Description
 
-PDF2Parts is a free, open source utility for extracting text, images, URLs, metadata, and individual pages from a file in Portable Document Format (PDF).  The executable, pdf2parts.exe, runs as a 32-bit, console-mode process under Windows.  The similarly named library and configuration files, pdf2parts.dll, pdf2parts.tlb, and pdf2parts.ini, are also needed by the program.  Other utilities in the distribution extract particular kinds of parts:  pdf2metadata.exe, pdf2pages.exe, pdf2images.exe, pdf2graphics.exe, pdf2text.exe and pdf2urls.exe.
+PDF2Parts is a free, open source set of utilities for extracting text, images, URLs, metadata, and individual pages from files in Portable Document Format (PDF).  The executable, pdf2parts.exe, runs as a 32-bit, console-mode process under Windows.  The similarly named library and configuration files, pdf2parts.dll, pdf2parts.tlb, and pdf2parts.ini, are also needed by the program.  Other utilities in the distribution extract particular kinds of parts in case only they are needed:  pdf2metadata.exe, pdf2pages.exe, pdf2images.exe, pdf2graphics.exe, pdf2text.exe, and pdf2urls.exe.
 ----------
 
 Installation
@@ -71,7 +71,8 @@ Test_01.tif
 Any graphics embedded in the page are saved to separate files with a longer suffix that includes the sequential number of the image on the page.  A dash precedes the image number.  For example, if the second graphic on page 1 is in BMP format, its corresponding file would be
 Test_01-2.bmp
 
-Each utility may be run without command-line parameters to be reminded of its syntax.
+Each utility may be run without command-line parameters to be reminded of its syntax.  The Batch file RunMulti.bat enables a utility to be run against multiple PDF files meeting a wildcard specification.  The first parameter is the utility name and the second parameter is the wildcard specification, e.g.,
+RunMulti pdf2text C:\temp\*.pdf
 ----------
 
 Change Log
@@ -84,6 +85,10 @@ Changed program name from PDF2Images to PDF2Parts, since text files are now also
 
 Beta 0.98 on February 3, 2012
 Used a registration-free COM technique rather than calling a Win32 DLL in order to avoid memory errors when extracting text from PDFs that are not small in size.
+
+Version 1.0 on November 3, 2015
+Added Tagged status to PDF metadata.  Added pdf2urls.exe utility.  Added RunMulti batch file.  Uploaded project as a GitHub repository at
+https://github.com/JamalMazrui/pdf2parts
 ----------
 
 Development Notes
@@ -100,7 +105,10 @@ http://PowerBASIC.com
 The QuickPDF library is used by the program, available from
 http://QuickPDFLibrary.com
 
-Note that these are commercial products needed to successfully compile new versions of the executables.  Their source code, however, is open and free to share according to the license.  Batch and include files needed for development are also contained in this package.
+Note that these are commercial products needed to successfully compile new versions of the executables.  Their source code, however, is open and free to share according to the GNU Lesser General Public License (LGPL).  Batch and include files needed for development of PDF2Parts are also contained in the distribution.  The win2con.exe utility was used to convert each executable from a Windows to console mode binary.
+
+PDF metadata is extracted partly with the help of the free pdfinfo.exe utility.  It is distributed under the GNU General Public License (GPL) as part of the xpdf package, available from
+http://www.foolabs.com/xpdf/
 
 I welcome feedback, which helps PDF2PARTS improve over time.  When reporting a problem, the more specifics, the better, including steps to reproduce it if possible.
 

@@ -1,4 +1,4 @@
-#Compile Exe "Win2Con.exe"' Turn a windows program into a consol one, ' USAGE Win2Con <FileName> or drag and drop a file onto this program
+#Compile Exe "Win2Con.exe"' Turn a windows program into a console one, ' USAGE Win2Con <FileName> or drag and drop a file onto this program
 
 Function PBMain() As Long
 Dim FilePath As String
