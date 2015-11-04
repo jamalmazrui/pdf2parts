@@ -1,6 +1,6 @@
 ' PDF2Parts
-' Version 1.0
-' November 2, 2015
+' Version 1.1
+' November 4, 2015
 ' Copyright 2012 - 2015 by Jamal Mazrui
 ' GNU Lesser General Public License (LGPL)
 
@@ -96,29 +96,38 @@ sReturn = ini_GetKey(sIni, "Error Codes", sError, "")
 'DeleteAnalysis(hLib, hInfo)
 END IF
 
-sKey = "Image Only"
 Object Call oLib.LoadFromFile(vPdf, vPassword) To iResult
 ' Object call oLib.LastPageError() To iResult
 ' Object Call oLib.SelectedDocument() To hDoc
-' Object Call oLib.IsTaggedPDF() To iResult
+sKey = "Image Only"
 Object Call oLib.HasFontResources() To iResult
 sValue = "No"
 IF ISFALSE iResult THEN sValue = "Yes"
 sReturn = sReturn + sKey + " = " + sValue + $CRLF + $CrLf
+
+sKey = "Tagged"
+Object Call oLib.IsTaggedPDF() To iResult
+' DialogShow("Tagged", Format$(iResult))
+sValue = "No"
+IF ISTrue iResult THEN sValue = "Yes"
+sReturn = sReturn + sKey + " = " + sValue + $CRLF + $CrLf
+
 Object Call oLib.PageCount() To iPageCount
 
+If %False Then
 Local sKeys as wstring
 Local iType as Long
 iType = 2
 ' Object Call oLib.GetCustomKeys(iType) to sKeys
 ' Object Call oLib.GetDocumentMetadata() to sKeys
-' MsgBox sKeys
 ' Clipboard Set Text sKeys
 Local sTemp as string
 sTemp = sKeys
+End If ' custom keys
+
 Object Call oLib.RemoveDocument(hDoc) To iResult
 
-If %true Then
+If %False Then
 ' Shell ENVIRON$("COMSPEC") + " /C DIR *.* > filename.txt"
 Local sPdfInfo, sTempFile as String
 sPdfInfo = EXE.PATH$ & "pdfinfo.exe"
@@ -140,9 +149,10 @@ If Len(sTemp) = iLen Then Exit Loop
 WEnd
 Replace ":" With " = " in sTemp
 sReturn = sReturn + sTemp + $CrLf
+End If ' get tagged status from pdfinfo
+
 sReturn = Trim$(sReturn, ANY " " + $Crlf) + $CrLf
 FUNCTION = sReturn
-End If ' get tagged status from pdfinfo
 END FUNCTION
 
 FUNCTION FileToString(BYVAL s_file AS ASCIIZ * 256) AS STRING

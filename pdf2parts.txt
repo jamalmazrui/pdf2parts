@@ -1,6 +1,6 @@
 PDF2Parts
-Version 1.0
-November 3, 2015
+Version 1.1
+November 4, 2015
 Copyright 2012 - 2015 by Jamal Mazrui
 GNU Lesser General Public License (LGPL)
 ----------
@@ -73,6 +73,7 @@ Test_01-2.bmp
 
 Each utility may be run without command-line parameters to be reminded of its syntax.  The Batch file RunMulti.bat enables a utility to be run against multiple PDF files meeting a wildcard specification.  The first parameter is the utility name and the second parameter is the wildcard specification, e.g.,
 RunMulti pdf2text C:\temp\*.pdf
+(Note that pdf2text.exe only creates a text version of the whole PDF whereas pdf2parts.exe also creates one for each individual page.)
 ----------
 
 Change Log
@@ -89,6 +90,9 @@ Used a registration-free COM technique rather than calling a Win32 DLL in order 
 Version 1.0 on November 3, 2015
 Added Tagged status to PDF metadata.  Added pdf2urls.exe utility.  Added RunMulti batch file.  Uploaded project as a GitHub repository at
 https://github.com/JamalMazrui/pdf2parts
+
+Version 1.1 on November 4, 2015
+Obtained Tagged status via the QuickPDF library, thereby eliminating need for external pdfinfo.exe utility.  Revised pdf2text.exe so that only a text file of the whole PDF is created.  Thus RunMulti.bat can generate a text file for each PDF matching a wildcard specification, e.g., those in a directory.
 ----------
 
 Development Notes
@@ -106,9 +110,6 @@ The QuickPDF library is used by the program, available from
 http://QuickPDFLibrary.com
 
 Note that these are commercial products needed to successfully compile new versions of the executables.  Their source code, however, is open and free to share according to the GNU Lesser General Public License (LGPL).  Batch and include files needed for development of PDF2Parts are also contained in the distribution.  The win2con.exe utility was used to convert each executable from a Windows to console mode binary.
-
-PDF metadata is extracted partly with the help of the free pdfinfo.exe utility.  It is distributed under the GNU General Public License (GPL) as part of the xpdf package, available from
-http://www.foolabs.com/xpdf/
 
 I welcome feedback, which helps PDF2PARTS improve over time.  When reporting a problem, the more specifics, the better, including steps to reproduce it if possible.
 

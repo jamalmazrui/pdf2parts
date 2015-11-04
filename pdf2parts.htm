@@ -9,8 +9,8 @@
 </head>
 
 <body>
-  Version 1.0<br>
-  November 3, 2015<br>
+  Version 1.1<br>
+  November 4, 2015<br>
   Copyright 2012 - 2015 by Jamal Mazrui<br>
   GNU Lesser General Public License (LGPL)<br>
   ----------
@@ -126,7 +126,9 @@
   to be run against multiple PDF files meeting a wildcard
   specification. The first parameter is the utility name and the second
   parameter is the wildcard specification, e.g.,<br>
-  RunMulti pdf2text C:\temp\*.pdf</p>
+  RunMulti pdf2text C:\temp\*.pdf<br>
+  (Note that pdf2text.exe only creates a text version of the whole PDF
+  whereas pdf2parts.exe also creates one for each individual page.)</p>
 
   <h2><a name="A4">Change Log</a></h2>
 
@@ -151,6 +153,13 @@
   at<br>
   <a href=
   "https://github.com/JamalMazrui/pdf2parts">https://github.com/JamalMazrui/pdf2parts</a></p>
+
+  <p>Version 1.1 on November 4, 2015<br>
+  Obtained Tagged status via the QuickPDF library, thereby eliminating
+  need for external pdfinfo.exe utility. Revised pdf2text.exe so that
+  only a text file of the whole PDF is created. Thus RunMulti.bat can
+  generate a text file for each PDF matching a wildcard specification,
+  e.g., those in a directory.</p>
 
   <h2><a name="A5">Development Notes</a></h2>
 
@@ -177,12 +186,6 @@
   PDF2Parts are also contained in the distribution. The win2con.exe
   utility was used to convert each executable from a Windows to console
   mode binary.</p>
-
-  <p>PDF metadata is extracted partly with the help of the free
-  pdfinfo.exe utility. It is distributed under the GNU General Public
-  License (GPL) as part of the xpdf package, available from<br>
-  <a href=
-  "http://www.foolabs.com/xpdf/">http://www.foolabs.com/xpdf/</a></p>
 
   <p>I welcome feedback, which helps PDF2PARTS improve over time. When
   reporting a problem, the more specifics, the better, including steps
