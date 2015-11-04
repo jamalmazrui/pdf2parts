@@ -1,6 +1,6 @@
 PDF2Parts
-Version 1.0
-November 2, 2015
+Version 1.1
+November 4, 2015
 Copyright 2012 - 2015 by Jamal Mazrui
 GNU Lesser General Public License (LGPL)
 
